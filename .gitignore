@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 
 playground.js
+playground.test.js
