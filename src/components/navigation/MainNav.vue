@@ -1,7 +1,7 @@
 <script>
-import ActionButton from '@/components/ActionButton.vue'
-import ProfileImage from '@/components/ProfileImage.vue'
-import TheSubNav from '@/components/TheSubNav.vue'
+import ActionButton from '../shared/ActionButton.vue'
+import ProfileImage from '@/components/navigation/ProfileImage.vue'
+import TheSubNav from '@/components/navigation/TheSubNav.vue'
 export default {
   name: 'MainNav',
   components: {

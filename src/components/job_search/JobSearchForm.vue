@@ -1,6 +1,6 @@
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import ActionButton from './ActionButton.vue'
+import ActionButton from '../shared/ActionButton.vue'
 
 export default {
   name: 'JobSearchForm',
