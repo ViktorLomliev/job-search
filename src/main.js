@@ -4,8 +4,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 import '@/index.css'
+import router from '@/router'
 import App from '@/App.vue'
 
 library.add(faSearch)
 
-createApp(App).component('fontAwesomeIcon', FontAwesomeIcon).mount('#app')
+createApp(App).use(router).component('fontAwesomeIcon', FontAwesomeIcon).mount('#app')
