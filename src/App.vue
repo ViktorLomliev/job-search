@@ -1,9 +1,12 @@
 <script>
+import MainNav from './components/navigation/MainNav.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { MainNav }
 }
 </script>
 
 <template>
+  <MainNav />
   <RouterView />
 </template>
