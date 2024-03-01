@@ -1,4 +1,5 @@
 <script>
+import nextElementInList from '@/utils/nextElementInList'
 export default {
   name: 'TheHeadline',
   data() {
@@ -10,10 +11,7 @@ export default {
   computed: {
     actionClasses() {
       return {
-        build: this.action === 'Build',
-        create: this.action === 'Create',
-        design: this.action === 'Design',
-        code: this.action === 'Code'
+        [this.action.toLowerCase()]: true
       }
     }
   },
@@ -27,10 +25,8 @@ export default {
     changeTitle() {
       this.interval = setInterval(() => {
         const actions = ['Build', 'Create', 'Design', 'Code']
-        const currentActionIndex = actions.indexOf(this.action)
-        const nextActionIndex = (currentActionIndex + 1) % 4
-        const nextAction = actions[nextActionIndex]
-        this.action = nextAction
+
+        this.action = nextElementInList(actions, this.action)
       }, 3000)
     }
   }
@@ -39,11 +35,11 @@ export default {
 
 <template>
   <section>
-    <h1>
+    <h1 class="mb-14 text-8xl font-bold tracking-tighter">
       <span :class="actionClasses">{{ action }}</span> <br />
       for everyone
     </h1>
-    <h2>Find your nect job at JobHive</h2>
+    <h2 class="text-3xl font-light">Find your next job at JobHive</h2>
   </section>
 </template>
 
