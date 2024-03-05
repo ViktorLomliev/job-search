@@ -7,8 +7,14 @@ import { describe } from 'vitest'
 
 describe('MainNav', () => {
   const renderMainNav = () => {
+    const $route = {
+      name: 'Home'
+    }
     render(MainNav, {
       global: {
+        mocks: {
+          $route
+        },
         stubs: {
           fontAwesomeIcon: true,
           RouterLink: RouterLinkStub
