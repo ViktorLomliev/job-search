@@ -11,10 +11,9 @@ export default {
       jobs: []
     }
   },
-  mounted() {
-    axios.get('http://localhost:3000/jobs').then((response) => {
-      this.jobs = response.data
-    })
+  async mounted() {
+    const response = await axios.get('http://localhost:3000/jobs')
+    this.jobs = response.data
   }
 }
 </script>
@@ -22,9 +21,7 @@ export default {
 <template>
   <main class="flex-auto bg-brand-gray-2 p-8">
     <ol>
-      <JobListing />
-      <JobListing />
-      <JobListing />
+      <JobListing v-for="job in jobs" :key="job.id" :job="job" />
     </ol>
   </main>
 </template>
