@@ -15,6 +15,16 @@ export default {
     currentPage() {
       return Number.parseInt(this.$route.query.page || '1')
     },
+    previousPage() {
+      const previousPage = this.currentPage - 1
+      const firstPage = 1
+      return previousPage >= firstPage ? previousPage : undefined
+    },
+    nextPage() {
+      const nextPage = this.currentPage + 1
+      const maxPage = Math.ceil(this.jobs.length / 10)
+      return nextPage <= maxPage ? nextPage : undefined
+    },
     displayedJobs() {
       const pageNumber = this.currentPage
       const firstJobIndex = (pageNumber - 1) * 10
@@ -37,6 +47,24 @@ export default {
     <div class="mx-auto my-8">
       <div class="flex flex-row flex-nowrap">
         <p class="flex-grow text-sm">Page {{ currentPage }}</p>
+        <div class="item-center flex justify-center">
+          <RouterLink
+            v-if="previousPage"
+            role="link"
+            :to="{ name: 'JobResults', query: { page: previousPage } }"
+            class="mx-3 text-sm font-semibold text-brand-blue-1"
+          >
+            Previous
+          </RouterLink>
+          <RouterLink
+            v-if="nextPage"
+            role="link"
+            :to="{ name: 'JobResults', query: { page: nextPage } }"
+            class="mx-3 text-sm font-semibold text-brand-blue-1"
+          >
+            Next
+          </RouterLink>
+        </div>
       </div>
     </div>
   </main>
