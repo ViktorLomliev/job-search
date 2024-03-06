@@ -12,9 +12,11 @@ export default {
     }
   },
   computed: {
+    currentPage() {
+      return Number.parseInt(this.$route.query.page || '1')
+    },
     displayedJobs() {
-      const pageString = this.$route.query.page || '1'
-      const pageNumber = Number.parseInt(pageString)
+      const pageNumber = this.currentPage
       const firstJobIndex = (pageNumber - 1) * 10
       const lastJobIndex = pageNumber * 10
       return this.jobs.slice(firstJobIndex, lastJobIndex)
@@ -32,5 +34,10 @@ export default {
     <ol>
       <JobListing v-for="job in displayedJobs" :key="job.id" :job="job" />
     </ol>
+    <div class="mx-auto my-8">
+      <div class="flex flex-row flex-nowrap">
+        <p class="flex-grow text-sm">Page {{ currentPage }}</p>
+      </div>
+    </div>
   </main>
 </template>
