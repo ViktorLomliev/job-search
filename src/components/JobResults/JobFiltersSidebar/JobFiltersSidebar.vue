@@ -7,6 +7,7 @@
           <ActionButton text="Clear Filters" type="secondary" />
         </div>
       </div>
+      <CollapsibleAccordion header="Degree" />
       <CollapsibleAccordion header="Job types">
         <p>Placeholder</p>
       </CollapsibleAccordion>
