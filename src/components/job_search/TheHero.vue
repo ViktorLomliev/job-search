@@ -1,18 +1,21 @@
 <script>
 import TheHeadline from './TheHeadline.vue'
 import JobSearchForm from './JobSearchForm.vue'
+import SpotLight from '@/components/job_search/SpotLight.vue'
+
 export default {
   name: 'TheHero',
   components: {
     TheHeadline,
-    JobSearchForm
+    JobSearchForm,
+    SpotLight
   }
 }
 </script>
 
 <template>
-  <main>
-    <section class="flex h-screen flex-col pb-20 pt-10">
+  <main class="flex h-screen flex-col">
+    <section class="pb-20 pt-10">
       <div class="grid grid-cols-12">
         <div class="col-span-1 col-start-1"></div>
         <div class="col-span-5 col-start-2">
@@ -29,5 +32,20 @@ export default {
         <div class="col-span-1 col-start-12"></div>
       </div>
     </section>
+    <SpotLight class="flex flex-row justify-center pb-16">
+      <template #default="{ img, title, description }">
+        <RouterLink
+          to="/jobs/results"
+          class="mx-5 flex h-96 w-72 flex-col rounded-lg border bg-brand-gray-2"
+        >
+          <img :src="img" class="object-contain" />
+          <div class="mt-3 h-48 px-6 py-4">
+            <h3 class="text-lg font-medium">{{ title }}</h3>
+            <p class="mt-3 text-sm">{{ description }}</p>
+          </div>
+          <RouterLink to="/jobs/results" class="px-6 pb-4 text-sm">See Jobs</RouterLink>
+        </RouterLink>
+      </template>
+    </SpotLight>
   </main>
 </template>
