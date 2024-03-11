@@ -8,8 +8,18 @@ export default {
   components: {
     CollapsibleAccordion
   },
+  data() {
+    return {
+      selectedOrganizations: []
+    }
+  },
   computed: {
     ...mapState(useJobsStore, [UNIQUE_ORGANIZATIONS])
+  },
+  methods: {
+    selectOrganization() {
+      console.log(this.selectedOrganizations)
+    }
   }
 }
 </script>
@@ -20,7 +30,14 @@ export default {
       <fieldset>
         <ul class="flex flex-row flex-wrap">
           <li v-for="organization in UNIQUE_ORGANIZATIONS" :key="organization" class="h-8 w-1/2">
-            <input :id="organization" type="checkbox" class="mr-3" />
+            <input
+              :id="organization"
+              v-model="selectedOrganizations"
+              :value="organization"
+              type="checkbox"
+              class="mr-3"
+              @change="selectOrganization"
+            />
             <label for="organization">{{ organization }}</label>
           </li>
         </ul>
