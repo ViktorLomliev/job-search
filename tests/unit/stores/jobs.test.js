@@ -48,6 +48,15 @@ describe('getter', () => {
       expect(result).toEqual(new Set(['Google', 'Amazon']))
     })
   })
+  describe('UNIQUE_JOB_TYPES', () => {
+    it('finds unique job types from list of jobs', () => {
+      const store = useJobsStore()
+      store.jobs = [{ jobType: 'Full-time' }, { jobType: 'Temporary' }, { jobType: 'Full-time' }]
+
+      const result = store.UNIQUE_JOB_TYPES
+      expect(result).toEqual(new Set(['Full-time', 'Temporary']))
+    })
+  })
   describe('FILTER_JOBS_BY_ORGANIZATIONS', () => {
     it('identifies jobs that are associated with the given organizations', () => {
       const jobsStore = useJobsStore()
