@@ -1,3 +1,19 @@
+<script>
+import ActionButton from '@/components/shared/ActionButton.vue'
+import CollapsibleAccordion from '@/components/shared/CollapsibleAccordion.vue'
+import JobFiltersSidebarJobTypes from './JobFiltersSidebarJobTypes.vue'
+import JobFiltersSidebarOrganizations from '@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarOrganizations.vue'
+export default {
+  name: 'JobFiltersSidebar',
+  components: {
+    ActionButton,
+    CollapsibleAccordion,
+    JobFiltersSidebarOrganizations,
+    JobFiltersSidebarJobTypes
+  }
+}
+</script>
+
 <template>
   <div class="flex w-96 flex-col border-r border-solid border-brand-gray-1 bg-white p-4">
     <section class="pb-5">
@@ -8,24 +24,8 @@
         </div>
       </div>
       <CollapsibleAccordion header="Degree" />
-      <CollapsibleAccordion header="Job types">
-        <p>Placeholder</p>
-      </CollapsibleAccordion>
+      <JobFiltersSidebarJobTypes />
       <JobFiltersSidebarOrganizations />
     </section>
   </div>
 </template>
-
-<script>
-import ActionButton from '@/components/shared/ActionButton.vue'
-import CollapsibleAccordion from '@/components/shared/CollapsibleAccordion.vue'
-import JobFiltersSidebarOrganizations from '@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarOrganizations.vue'
-export default {
-  name: 'JobFiltersSidebar',
-  components: {
-    ActionButton,
-    CollapsibleAccordion,
-    JobFiltersSidebarOrganizations
-  }
-}
-</script>
