@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
 import { createTestingPinia } from '@pinia/testing'
-C:\Vue Course\job-search\tests\unit\components\JobResults\JobFiltersSidebarOrganizations.test.js
 import JobFiltersSidebarOrganizations from '@/components/JobResults/JobFiltersSidebar/JobFiltersSidebarOrganizations.vue'
 import { useJobsStore } from '@/stores/jobs'
 import { useUserStore } from '@/stores/user'
