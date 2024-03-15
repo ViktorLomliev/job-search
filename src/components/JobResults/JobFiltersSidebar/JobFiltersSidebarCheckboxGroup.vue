@@ -9,7 +9,7 @@ const props = defineProps({
     required: true
   },
   uniqueValues: {
-    type: setInterval,
+    type: Set,
     required: true
   },
   action: {
