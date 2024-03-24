@@ -1,12 +1,7 @@
-<script>
-export default {
-  name: 'ProfileImage',
-  data() {
-    return {
-      imageLink: 'https://i1.sndcdn.com/artworks-wSDztKZNhOSkFRps-qpSMGQ-t500x500.jpg'
-    }
-  }
-}
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const imageLink = ref('https://i1.sndcdn.com/artworks-wSDztKZNhOSkFRps-qpSMGQ-t500x500.jpg')
 </script>
 
 <template>
