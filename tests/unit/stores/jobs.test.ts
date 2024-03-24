@@ -3,7 +3,7 @@ import axios from 'axios'
 import { createPinia, setActivePinia } from 'pinia'
 import { useJobsStore } from '@/stores/jobs'
 import { useUserStore } from '@/stores/user'
-import { createJob } from 'tests/utils/createJobs'
+import { createJob } from '../../utils/createJobs'
 
 vi.mock('axios')
 const axiosGetMock = axios.get as Mock
@@ -90,7 +90,7 @@ describe('getter', () => {
   })
   describe('INCLUDE_JOB_BY_JOB_TYPE', () => {
     describe('when the user has not selected any job types', () => {
-      it('it includes job', () => {
+      it('includes job', () => {
         const userStore = useUserStore()
         userStore.selectedJobTypes = []
         const store = useJobsStore()
@@ -111,5 +111,29 @@ describe('getter', () => {
 
       expect(result).toBe(true)
     })
-  })
+  }),
+    describe('INCLUDE_JOB_BY_DEGREE', () => {
+      describe('when the user has not selected any degrees', () => {
+        it('includes job', () => {
+          const userStore = useUserStore()
+          userStore.selectedDegrees = []
+          const store = useJobsStore()
+          const job = createJob()
+
+          const result = store.INCLUDE_JOB_BY_DEGREE(job)
+
+          expect(result).toBe(true)
+        })
+      })
+      it('identifies if job is associated with given degree', () => {
+        const userStore = useUserStore()
+        userStore.selectedDegrees = ["Master's"]
+        const store = useJobsStore()
+        const job = createJob({ degree: "Master's" })
+
+        const result = store.INCLUDE_JOB_BY_DEGREE(job)
+
+        expect(result).toBe(true)
+      })
+    })
 })
