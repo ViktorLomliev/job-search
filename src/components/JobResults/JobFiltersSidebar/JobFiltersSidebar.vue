@@ -4,12 +4,14 @@ import JobFiltersSidebarDegrees from './JobFiltersSidebarDegrees.vue'
 import JobFiltersSidebarJobTypes from './JobFiltersSidebarJobTypes.vue'
 import JobFiltersSidebarOrganizations from './JobFiltersSidebarOrganizations.vue'
 import JobFiltersSidebarPrompt from './JobFiltersSidebarPrompt.vue'
+import JobFiltersSidebarSkills from './JobFiltersSidebarSkills.vue'
 </script>
 
 <template>
   <div class="flex w-96 flex-col border-r border-solid border-brand-gray-1 bg-white p-4">
     <section class="pb-5">
       <JobFiltersSidebarPrompt />
+      <JobFiltersSidebarSkills />
       <CollapsibleAccordion header="Degrees">
         <JobFiltersSidebarDegrees />
       </CollapsibleAccordion>
