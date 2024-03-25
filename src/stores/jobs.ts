@@ -48,8 +48,8 @@ export const useJobsStore = defineStore('jobs', {
     },
     [INCLUDE_JOB_BY_DEGREE]: () => (job: Job) => {
       const userStore = useUserStore()
-      if (userStore.selectedOrganizations.length === 0) return true
-      return userStore.selectedDegrees.includes(job.degrees)
+      if (userStore.selectedDegrees.length === 0) return true
+      return userStore.selectedDegrees.includes(job.degree)
     },
     [FILTERED_JOBS](state): Job[] {
       return state.jobs
