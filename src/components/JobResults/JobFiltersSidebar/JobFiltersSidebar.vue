@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import ActionButton from '@/components/shared/ActionButton.vue'
-import CollapsibleAccordion from '@/components/shared/CollapsibleAccordion.vue'
 import JobFiltersSidebarCheckboxGroup from './JobFiltersSidebarCheckboxGroup.vue'
 import { useJobsStore } from '@/stores/jobs'
 import { useUserStore } from '@/stores/user'
@@ -24,7 +23,11 @@ const userStore = useUserStore()
       <div class="f;ex-rpw flex justify-between">
         <h3 class="my-4 text-base font-semibold">What do you want to do?</h3>
         <div class="flex items-center text-sm">
-          <ActionButton text="Clear Filters" type="secondary" />
+          <ActionButton
+            text="Clear Filters"
+            type="secondary"
+            @click="userStore.CLEAR_USER_JOB_FILTER_SELECTION"
+          />
         </div>
       </div>
       <JobFiltersSidebarCheckboxGroup
