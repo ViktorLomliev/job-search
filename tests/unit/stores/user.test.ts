@@ -56,4 +56,18 @@ describe('actions', () => {
       expect(store.selectedDegrees).toEqual(["Bachelor's", "Master's"])
     })
   })
+  describe('CLEAR_USER_JOB_FILTER_SELECTION', () => {
+    it('removes all job filters that user has chosen', () => {
+      const store = useUserStore()
+      store.selectedDegrees = ['Random degree']
+      store.selectedJobTypes = ['Random job type']
+      store.selectedOrganizations = ['Random organization']
+
+      store.CLEAR_USER_JOB_FILTER_SELECTION()
+
+      expect(store.selectedDegrees).toEqual([])
+      expect(store.selectedJobTypes).toEqual([])
+      expect(store.selectedOrganizations).toEqual([])
+    })
+  })
 })
