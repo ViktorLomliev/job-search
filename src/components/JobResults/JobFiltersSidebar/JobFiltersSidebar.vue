@@ -5,6 +5,7 @@ import JobFiltersSidebarCheckboxGroup from './JobFiltersSidebarCheckboxGroup.vue
 import { useJobsStore } from '@/stores/jobs'
 import { useUserStore } from '@/stores/user'
 import { useDegreesStore } from '@/stores/degrees'
+import CollapsibleAccordion from '@/components/shared/CollapsibleAccordion.vue'
 
 const jobsStore = useJobsStore()
 
@@ -30,21 +31,24 @@ const userStore = useUserStore()
           />
         </div>
       </div>
-      <JobFiltersSidebarCheckboxGroup
-        header="Degrees"
-        :unique-values="UNIQUE_DEGREES"
-        :action="userStore.ADD_SELECTED_DEGREES"
-      />
-      <JobFiltersSidebarCheckboxGroup
-        header="Job Types"
-        :unique-values="UNIQUE_JOB_TYPES"
-        :action="userStore.ADD_SELECTED_JOB_TYPES"
-      />
-      <JobFiltersSidebarCheckboxGroup
-        header="Organizations"
-        :unique-values="UNIQUE_ORGANIZATIONS"
-        :action="userStore.ADD_SELECTED_ORGANIZATION"
-      />
+      <CollapsibleAccordion header="Degrees">
+        <JobFiltersSidebarCheckboxGroup
+          :unique-values="UNIQUE_DEGREES"
+          :action="userStore.ADD_SELECTED_DEGREES"
+        />
+      </CollapsibleAccordion>
+      <CollapsibleAccordion header="Job Types">
+        <JobFiltersSidebarCheckboxGroup
+          :unique-values="UNIQUE_JOB_TYPES"
+          :action="userStore.ADD_SELECTED_JOB_TYPES"
+        />
+      </CollapsibleAccordion>
+      <CollapsibleAccordion header="Organizations">
+        <JobFiltersSidebarCheckboxGroup
+          :unique-values="UNIQUE_ORGANIZATIONS"
+          :action="userStore.ADD_SELECTED_ORGANIZATION"
+        />
+      </CollapsibleAccordion>
     </section>
   </div>
 </template>
